@@ -34,6 +34,8 @@ const getMeals = async () => {
 
 document.addEventListener("DOMContentLoaded", async () => {
   const categories = await getCategories();
+  categories.unshift({ strCategory: "Alle" });
+  categories.sort((a, b) => a.strCategory - b.strCategory);
   categories.forEach((c) => {
     const li = document.createElement("li");
     li.textContent = c.strCategory;
@@ -70,7 +72,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     a.append(mealName);
     a.append(cta);
 
-    a.href = "./details-page.html";
+    a.href = "./details-page.html?id=" + m.idMeal;
     a.title = m.strMeal;
 
     mealCardsElement.append(a);

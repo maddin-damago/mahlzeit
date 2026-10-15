@@ -27,7 +27,7 @@ body {
   padding: 0.5rem;
   max-width: 900px;
   margin: 0 auto;
-  background-color: #f4f6f2;
+  background-color: #eaece7;
 }
 
 h1,
@@ -102,6 +102,7 @@ nav > * > * {
   border: 1px solid #3d584f;
   border-radius: 20px;
   box-shadow: 2px 2px 5px #0d362777;
+  background-color: rgb(247, 247, 247);
 }
 
 .meal-card h3 {
