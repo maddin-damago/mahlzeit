@@ -1,0 +1,146 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "BricolageGrotesque";
+  src: url("../assets/fonts/BricolageGrotesque-ExtraBold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../assets/fonts/DMSans-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  padding: 0.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #f4f6f2;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "BricolageGrotesque", sans-serif;
+}
+
+h1,
+h2 {
+  margin: 1rem 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav > * > * {
+  margin: 0 0.3rem;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+}
+
+#red-dot {
+  width: 20px;
+  height: 20px;
+  background-color: #c93e22;
+  border-radius: 50%;
+}
+
+#search {
+  margin: 0.5rem 0;
+}
+
+#categories {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+#categories li {
+  padding: 5px 10px;
+  margin-right: 20px;
+  margin-bottom: 1rem;
+  border: 1px solid black;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#meal-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.meal-card {
+  width: 250px;
+  height: 265px;
+  border: 1px solid #3d584f;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px #0d362777;
+}
+
+.meal-card h3 {
+  margin: 10px 15px;
+}
+
+.meal-card span {
+  margin: 0 15px;
+  color: #1f4a3a;
+  font-size: 12px;
+}
+
+.meal-card img {
+  width: 248px;
+  height: 150px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin: auto;
+}
+
+.badge-container {
+  display: flex;
+  justify-content: start;
+  margin: 5px 10px;
+}
+
+.meal-card li {
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-color: #ceffee;
+  color: #1f4a3a;
+  box-shadow: 1px 1px 2px #1f4a3a;
+}
+
+footer {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
