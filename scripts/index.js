@@ -7,6 +7,7 @@ import {
 } from "./data.js";
 
 const categoriesElement = document.getElementById("categories");
+const categoriesElementoLoop = document.querySelectorAll("#categories");
 const mealCardsElement = document.getElementById("meal-cards");
 
 const getCategoriesData = async () => {
@@ -40,6 +41,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     const li = document.createElement("li");
     li.textContent = c.strCategory;
     categoriesElement.append(li);
+  });
+
+  categoriesElementoLoop.forEach((ce) => {
+    ce.addEventListener("click", () => {
+      console.log(ce.children.children); // why undefined?
+      ce.children.children.classList.add("active");
+    });
   });
 
   const meals = await getMeals();
