@@ -1,30 +1,14 @@
 "use strict";
 
-import {
-  urlMain,
-  endpointCategories,
-  endpointSearchFirstLetter,
-} from "./data.js";
+import { getCategoriesData, getMealsData } from "./api.js";
 
 const categoriesElement = document.getElementById("categories");
 const categoriesElementoLoop = document.querySelectorAll("#categories");
 const mealCardsElement = document.getElementById("meal-cards");
 
-const getCategoriesData = async () => {
-  const reponse = await fetch(`${urlMain}${endpointCategories}`);
-  return reponse.json();
-};
-
 const getCategories = async () => {
   const categories = await getCategoriesData();
   return categories.categories;
-};
-
-const getMealsData = async (firstLetter = "a") => {
-  const reponse = await fetch(
-    `${urlMain}${endpointSearchFirstLetter}${firstLetter}`,
-  );
-  return reponse.json();
 };
 
 const getMeals = async () => {

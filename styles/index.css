@@ -49,6 +49,11 @@ a {
   color: black;
 }
 
+button {
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+}
+
 nav {
   width: 100%;
   padding: 10px;
@@ -90,7 +95,8 @@ nav > * > * {
 }
 
 #search button,
-#buttons-detail button {
+#video-btn,
+#other {
   margin-left: 10px;
   padding: 10px 30px;
   font-size: 20px;
@@ -215,16 +221,23 @@ footer {
 
 /* ************ Details Page ************ */
 
+.back-btn {
+  margin-top: 1rem;
+  border: none;
+  font-size: 16px;
+}
+
 #overview {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
 }
 
 #image img {
   width: 400px;
   height: 400px;
-  background-color: rgb(255, 207, 207);
   border-radius: 20px;
+  object-fit: cover;
 }
 
 #badges-meal-detail {
@@ -232,7 +245,52 @@ footer {
   justify-content: start;
 }
 
-#buttons-detail button {
+#buttons-detail button,
+#video-btn,
+#other {
   margin-left: 0;
   margin-right: 10px;
+}
+
+#ingredients {
+  margin-top: 2rem;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.ingredient {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+#instructions {
+  margin-top: 2rem;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+#instructions div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+}
+
+.number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #1f4a3a;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+}
+
+hr {
+  margin: 15px 0;
 }
