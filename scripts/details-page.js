@@ -58,12 +58,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     ingredientsElement.append(ingredient);
   });
 
-  for (let i = 1; i < instructions.length - 1; i++) {
+  for (let i = 0; i < instructions.length - 1; i++) {
     const instructionStep = document.createElement("div");
     const instructionStepNumber = document.createElement("div");
     const instruction = document.createElement("span");
     instructionStepNumber.classList.add("number");
-    instructionStepNumber.textContent = i;
+    instructionStepNumber.textContent = i + 1;
     instruction.textContent = instructions[i];
 
     instructionStep.append(instructionStepNumber);
