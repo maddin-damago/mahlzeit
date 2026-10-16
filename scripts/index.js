@@ -20,7 +20,7 @@ const getCategories = async () => {
   return categories.categories;
 };
 
-const getMealData = async (firstLetter = "a") => {
+const getMealsData = async (firstLetter = "a") => {
   const reponse = await fetch(
     `${urlMain}${endpointSearchFirstLetter}${firstLetter}`,
   );
@@ -28,7 +28,7 @@ const getMealData = async (firstLetter = "a") => {
 };
 
 const getMeals = async () => {
-  const meals = await getMealData();
+  const meals = await getMealsData();
   console.log(meals.meals);
   return meals.meals;
 };

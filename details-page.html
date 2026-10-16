@@ -1,12 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="shortcut icon" href="#" />
     <title>Meals Details Page</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <main>
+      <nav>
+        <div id="logo">
+          <div id="red-dot"></div>
+          <h3>Mahlzeit</h3>
+        </div>
+        <div>
+          <a href="#">Entdecken</a>
+          <a href="#">Kategorien</a>
+          <a href="#">Zufallsrezept</a>
+        </div>
+      </nav>
+      <span>Zurück zur Übersicht</span>
+      <section id="overview">
+        <div id="image">
+          <img src="" alt="" />
+        </div>
+        <div id="meal-data">
+          <div id="badges-meal-detail">
+            <li>Italian</li>
+            <li>Meaty</li>
+          </div>
+          <h1>Meal Name</h1>
+          <div id="buttons-detail">
+            <button id="video-btn">Video ansehen</button>
+            <button id="other">Anderes Rezept</button>
+          </div>
+          <div id="ingredients"></div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./scripts/details-page.js"></script>
+  </body>
 </html>

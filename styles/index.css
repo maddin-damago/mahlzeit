@@ -24,7 +24,6 @@
 
 body {
   font-family: "DM Sans", sans-serif;
-  padding: 0.5rem;
   max-width: 900px;
   margin: 0 auto;
   background-color: #eaece7;
@@ -51,8 +50,11 @@ a {
 }
 
 nav {
+  width: 100%;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
+  background-color: white;
 }
 
 nav > * > * {
@@ -76,20 +78,33 @@ nav > * > * {
 }
 
 #search input {
-  width: 300px;
-  padding: 5px;
+  width: 400px;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
 }
 
-#search button {
-  padding: 5px 6px;
+#search input::placeholder {
+  font-size: 20px;
+}
+
+#search button,
+#buttons-detail button {
+  margin-left: 10px;
+  padding: 10px 30px;
+  font-size: 20px;
   border: none;
   border-radius: 10px;
 }
 
-#search-btn {
+#search-btn,
+#video-btn {
   background-color: #c93e22;
+  color: white;
 }
-#surprise-btn {
+#surprise-btn,
+#other {
   background-color: white;
 }
 
@@ -100,7 +115,7 @@ nav > * > * {
 }
 
 #categories li {
-  padding: 5px 10px;
+  padding: 8px 14px;
   margin-right: 20px;
   margin-bottom: 1rem;
   border: 1px solid black;
@@ -181,7 +196,8 @@ nav > * > * {
   margin: 5px 10px;
 }
 
-.meal-card li {
+.meal-card li,
+#badges-meal-detail li {
   padding: 5px 10px;
   margin-right: 10px;
   border-radius: 10px;
@@ -195,4 +211,28 @@ footer {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+}
+
+/* ************ Details Page ************ */
+
+#overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#image img {
+  width: 400px;
+  height: 400px;
+  background-color: rgb(255, 207, 207);
+  border-radius: 20px;
+}
+
+#badges-meal-detail {
+  display: flex;
+  justify-content: start;
+}
+
+#buttons-detail button {
+  margin-left: 0;
+  margin-right: 10px;
 }
