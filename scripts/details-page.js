@@ -22,15 +22,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   const measures = [];
 
   meal.meals.forEach((m) => {
+    console.log(m);
     for (const property in m) {
       let ingredient = {};
       if (property.includes("Ingredient")) {
-        ingredient[property] = "";
+        ingredient[property] = m[property];
         ingredients.push(ingredient);
       }
     }
   });
-
+  console.log(ingredients);
   meal.meals.forEach((m) => {
     for (const property in m) {
       if (property.includes("Measure")) {
