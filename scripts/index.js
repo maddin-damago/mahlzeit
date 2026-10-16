@@ -1,9 +1,12 @@
 "use strict";
 
-import { getCategoriesData, getMealsData } from "./api.js";
+import {
+  getCategoriesData,
+  getMealsData,
+  getMealsByCategoryData,
+} from "./api.js";
 
 const categoriesElement = document.getElementById("categories");
-const categoriesElementoLoop = document.querySelectorAll("#categories");
 const mealCardsElement = document.getElementById("meal-cards");
 
 const getCategories = async () => {
@@ -13,7 +16,11 @@ const getCategories = async () => {
 
 const getMeals = async () => {
   const meals = await getMealsData();
-  console.log(meals.meals);
+  return meals.meals;
+};
+
+const getMealsByCategory = async (category) => {
+  const meals = await getMealsByCategoryData(category);
   return meals.meals;
 };
 
@@ -24,18 +31,36 @@ document.addEventListener("DOMContentLoaded", async () => {
   categories.forEach((c) => {
     const li = document.createElement("li");
     li.textContent = c.strCategory;
+    if (c.strCategory === "Alle") {
+      li.classList.add("active");
+    }
+    li.classList.add("filter");
     categoriesElement.append(li);
   });
 
-  categoriesElementoLoop.forEach((ce) => {
-    ce.addEventListener("click", () => {
-      console.log(ce.children.children); // why undefined?
-      ce.children.children.classList.add("active");
+  const categoriesElementsToLoop = document.querySelectorAll(".filter");
+  let activeCategory = null; // "<li class='active filter'>Alle</li>"
+  let selectedCategory = "Alle";
+  categoriesElementsToLoop.forEach((ce) => {
+    ce.addEventListener("click", (e) => {
+      if (activeCategory) {
+        activeCategory.classList.remove("active");
+      }
+      activeCategory = e.currentTarget;
+      activeCategory.classList.add("active");
+      selectedCategory = e.currentTarget.textContent;
     });
   });
 
-  const meals = await getMeals();
+  console.log(selectedCategory);
+  const meals =
+    selectedCategory === "Alle"
+      ? await getMeals()
+      : await getMealsByCategory(selectedCategory);
 
+  console.log(meals);
+
+  // put this into render method to call on all the dom changes
   meals.forEach((m) => {
     const img = document.createElement("img");
     const a = document.createElement("a");

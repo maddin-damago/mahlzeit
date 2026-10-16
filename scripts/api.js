@@ -4,6 +4,7 @@ import {
   endpointSearchFirstLetter,
   endpointSearchById,
   endpointCategories,
+  endpointFilterByCategory,
 } from "./data.js";
 
 export const getCategoriesData = async () => {
@@ -20,5 +21,12 @@ export const getMealsData = async (firstLetter = "a") => {
 
 export const getMealData = async (id) => {
   const response = await fetch(`${urlMain}${endpointSearchById}${id}`);
+  return response.json();
+};
+
+export const getMealsByCategoryData = async (category) => {
+  const response = await fetch(
+    `${urlMain}${endpointFilterByCategory}${category}`,
+  );
   return response.json();
 };

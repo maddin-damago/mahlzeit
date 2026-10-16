@@ -131,8 +131,9 @@ nav > * > * {
 }
 
 .active {
-  background-color: #1f4a3a;
   color: white;
+  background-color: #1f4a3a !important;
+  border: 2px solid red;
 }
 
 #meal-cards {
