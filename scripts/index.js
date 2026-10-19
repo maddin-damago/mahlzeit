@@ -1,6 +1,11 @@
 "use strict";
 
-import { getCategories, getMeals, getMealsByCategory } from "./api.js";
+import {
+  getCategories,
+  getMeals,
+  getMealsByCategory,
+  getRandomMeal,
+} from "./api.js";
 
 const categoriesElement = document.getElementById("categories");
 const mealCardsElement = document.getElementById("meal-cards");
@@ -42,6 +47,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   searchFieldElement.addEventListener("input", (e) => {
     const searchTerm = e.currentTarget.value;
     handleSearchInput(searchTerm);
+  });
+
+  surpriseButton.addEventListener("click", async () => {
+    const rnd = await getRandomMeal();
+    window.location.href = "./details-page.html?id=" + rnd[0].idMeal;
   });
 
   const categoriesElementsToLoop = document.querySelectorAll(".filter");

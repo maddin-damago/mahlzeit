@@ -4,7 +4,7 @@ export function getIngredientsArray(meal) {
   const ingredients = [];
   const measures = [];
 
-  meal.meals.forEach((m) => {
+  meal.forEach((m) => {
     for (const property in m) {
       let ingredient = {};
       if (property.includes("Ingredient")) {
@@ -16,7 +16,7 @@ export function getIngredientsArray(meal) {
     }
   });
 
-  meal.meals.forEach((m) => {
+  meal.forEach((m) => {
     for (const property in m) {
       if (property.includes("Measure") && m[property] !== " ") {
         measures.push(m[property]);

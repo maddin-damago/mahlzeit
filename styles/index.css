@@ -227,7 +227,7 @@ footer {
 
 /* ************ Details Page ************ */
 
-.back-btn {
+#back-btn {
   margin-top: 1rem;
   border: none;
   font-size: 16px;
@@ -295,6 +295,10 @@ footer {
   color: white;
   text-align: center;
   border-radius: 50%;
+}
+
+.instruction {
+  width: 80ch;
 }
 
 hr {

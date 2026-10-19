@@ -5,27 +5,33 @@ import {
   endpointSearchById,
   endpointCategories,
   endpointFilterByCategory,
+  endpointRandomMeal,
 } from "./data.js";
 
-export const getCategoriesData = async () => {
+const getCategoriesData = async () => {
   const reponse = await fetch(`${urlMain}${endpointCategories}`);
   return reponse.json();
 };
 
-export const getMealsData = async (mealsName = "a") => {
+const getMealsData = async (mealsName = "a") => {
   const reponse = await fetch(`${urlMain}${endpointSearchByName}${mealsName}`);
   return reponse.json();
 };
 
-export const getMealData = async (id) => {
+const getMealData = async (id) => {
   const response = await fetch(`${urlMain}${endpointSearchById}${id}`);
   return response.json();
 };
 
-export const getMealsByCategoryData = async (category) => {
+const getMealsByCategoryData = async (category) => {
   const response = await fetch(
     `${urlMain}${endpointFilterByCategory}${category}`,
   );
+  return response.json();
+};
+
+const getRandomMealData = async () => {
+  const response = await fetch(`${urlMain}${endpointRandomMeal}`);
   return response.json();
 };
 
@@ -39,7 +45,17 @@ export const getMeals = async (searchTerm) => {
   return meals.meals;
 };
 
+export const getMeal = async (id) => {
+  const meal = await getMealData(id);
+  return meal.meals;
+};
+
 export const getMealsByCategory = async (category) => {
   const meals = await getMealsByCategoryData(category);
+  return meals.meals;
+};
+
+export const getRandomMeal = async () => {
+  const meals = await getRandomMealData();
   return meals.meals;
 };

@@ -1,30 +1,35 @@
 "use strict";
 
 import { getIngredientsArray, getInstructionsArray } from "./utils.js";
-import { getMealData } from "./api.js";
+import { getMeal, getRandomMeal } from "./api.js";
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-const getMeal = async () => {
-  const meal = await getMealData(id);
-  return meal;
-};
-
 const imageContainer = document.getElementById("image");
 const badgesContainer = document.getElementById("badges-meal-detail");
 const mealNameH1 = document.querySelector("h1");
-const videoButton = document.getElementById("video-btn");
+const buttonsContainer = document.getElementById("buttons-detail");
+const buttonOther = document.getElementById("other");
 const ingredientsElement = document.getElementById("ingredients");
 const instructionsElement = document.getElementById("instructions");
+const backBtn = document.getElementById("back-btn");
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const meal = await getMeal();
-  console.log(meal);
+  const meal = await getMeal(id);
   const ingredients = getIngredientsArray(meal);
-  const instructions = getInstructionsArray(meal.meals[0].strInstructions);
+  const instructions = getInstructionsArray(meal[0].strInstructions);
 
-  const mealData = meal.meals[0];
+  backBtn.addEventListener("click", () => {
+    window.location.href = "./index.html";
+  });
+
+  buttonOther.addEventListener("click", async () => {
+    const rnd = await getRandomMeal();
+    window.location.href = "./details-page.html?id=" + rnd[0].idMeal;
+  });
+
+  const mealData = meal[0];
 
   const image = document.createElement("img");
   image.src = mealData.strMealThumb + "/large";
@@ -40,8 +45,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   mealNameH1.textContent = mealData.strMeal;
 
-  videoButton.href = mealData.strYoutube;
-  videoButton.target = "_blank";
+  if (mealData.strYoutube) {
+    const videoBtn = document.createElement("a");
+    videoBtn.id = "video-btn";
+    videoBtn.textContent = "Video ansehen";
+
+    videoBtn.href = mealData.strYoutube;
+    videoBtn.target = "_blank";
+
+    buttonsContainer.insertBefore(videoBtn, buttonOther);
+  }
 
   ingredients.forEach((i, index) => {
     const ingredient = document.createElement("div");
@@ -64,6 +77,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const instruction = document.createElement("span");
     instructionStepNumber.classList.add("number");
     instructionStepNumber.textContent = i + 1;
+    instruction.classList.add("instruction");
     instruction.textContent = instructions[i];
 
     instructionStep.append(instructionStepNumber);
