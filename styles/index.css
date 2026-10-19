@@ -83,7 +83,7 @@ nav > * > * {
 }
 
 #search input {
-  width: 400px;
+  width: 600px;
   padding: 10px;
   font-size: 20px;
   border-radius: 10px;
@@ -98,18 +98,18 @@ nav > * > * {
 #video-btn,
 #other {
   margin-left: 10px;
-  padding: 10px 30px;
+  padding: 8px 30px;
   font-size: 20px;
   border: none;
   border-radius: 10px;
 }
 
-#search-btn,
+#surprise-btn,
 #video-btn {
   background-color: #c93e22;
   color: white;
 }
-#surprise-btn,
+
 #other {
   background-color: white;
 }
@@ -134,6 +134,11 @@ nav > * > * {
   color: white;
   background-color: #1f4a3a !important;
   border: 2px solid red;
+}
+
+.fallback {
+  font-size: 24px;
+  height: 600px;
 }
 
 #meal-cards {

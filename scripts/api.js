@@ -1,7 +1,7 @@
 "use strict";
 import {
   urlMain,
-  endpointSearchFirstLetter,
+  endpointSearchByName,
   endpointSearchById,
   endpointCategories,
   endpointFilterByCategory,
@@ -12,10 +12,8 @@ export const getCategoriesData = async () => {
   return reponse.json();
 };
 
-export const getMealsData = async (firstLetter = "a") => {
-  const reponse = await fetch(
-    `${urlMain}${endpointSearchFirstLetter}${firstLetter}`,
-  );
+export const getMealsData = async (mealsName = "a") => {
+  const reponse = await fetch(`${urlMain}${endpointSearchByName}${mealsName}`);
   return reponse.json();
 };
 
@@ -36,8 +34,8 @@ export const getCategories = async () => {
   return categories.categories;
 };
 
-export const getMeals = async () => {
-  const meals = await getMealsData();
+export const getMeals = async (searchTerm) => {
+  const meals = await getMealsData(searchTerm);
   return meals.meals;
 };
 
