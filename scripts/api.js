@@ -30,3 +30,18 @@ export const getMealsByCategoryData = async (category) => {
   );
   return response.json();
 };
+
+export const getCategories = async () => {
+  const categories = await getCategoriesData();
+  return categories.categories;
+};
+
+export const getMeals = async () => {
+  const meals = await getMealsData();
+  return meals.meals;
+};
+
+export const getMealsByCategory = async (category) => {
+  const meals = await getMealsByCategoryData(category);
+  return meals.meals;
+};

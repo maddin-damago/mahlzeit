@@ -1,31 +1,15 @@
 "use strict";
 
-import {
-  getCategoriesData,
-  getMealsData,
-  getMealsByCategoryData,
-} from "./api.js";
+import { getCategories, getMeals, getMealsByCategory } from "./api.js";
 
 const categoriesElement = document.getElementById("categories");
 const mealCardsElement = document.getElementById("meal-cards");
 
-const getCategories = async () => {
-  const categories = await getCategoriesData();
-  return categories.categories;
-};
-
-const getMeals = async () => {
-  const meals = await getMealsData();
-  return meals.meals;
-};
-
-const getMealsByCategory = async (category) => {
-  const meals = await getMealsByCategoryData(category);
-  return meals.meals;
-};
-
 document.addEventListener("DOMContentLoaded", async () => {
   const categories = await getCategories();
+
+  renderMeals(getMeals);
+
   categories.unshift({ strCategory: "Alle" });
   categories.sort((a, b) => a.strCategory - b.strCategory);
   categories.forEach((c) => {
@@ -39,29 +23,35 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   const categoriesElementsToLoop = document.querySelectorAll(".filter");
-  let activeCategory = null; // "<li class='active filter'>Alle</li>"
-  let selectedCategory = "Alle";
+  let activeCategory = document.querySelector("li.active.filter");
   categoriesElementsToLoop.forEach((ce) => {
     ce.addEventListener("click", (e) => {
+      let selectedCategory = "Alle";
       if (activeCategory) {
         activeCategory.classList.remove("active");
       }
       activeCategory = e.currentTarget;
       activeCategory.classList.add("active");
+
+      console.log(activeCategory);
+
       selectedCategory = e.currentTarget.textContent;
+      console.log(selectedCategory);
+      const meals =
+        selectedCategory === "Alle"
+          ? async () => await getMeals()
+          : async () => await getMealsByCategory(selectedCategory);
+
+      renderMeals(meals);
     });
   });
+});
 
-  console.log(selectedCategory);
-  const meals =
-    selectedCategory === "Alle"
-      ? await getMeals()
-      : await getMealsByCategory(selectedCategory);
+async function renderMeals(meals) {
+  mealCardsElement.innerHTML = "";
+  const currentMeals = await meals();
 
-  console.log(meals);
-
-  // put this into render method to call on all the dom changes
-  meals.forEach((m) => {
+  currentMeals.forEach((m) => {
     const img = document.createElement("img");
     const a = document.createElement("a");
     const badgeContainer = document.createElement("div");
@@ -94,4 +84,4 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     mealCardsElement.append(a);
   });
-});
+}
