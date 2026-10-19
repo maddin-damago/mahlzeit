@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   let activeCategory = document.querySelector("li.active.filter");
   categoriesElementsToLoop.forEach((ce) => {
     ce.addEventListener("click", (e) => {
+      searchFieldElement.value = "";
       let selectedCategory = e.currentTarget.textContent;
       if (activeCategory) {
         activeCategory.classList.remove("active");
