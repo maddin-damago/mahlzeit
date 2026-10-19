@@ -11,6 +11,7 @@ const categoriesElement = document.getElementById("categories");
 const mealCardsElement = document.getElementById("meal-cards");
 const searchFieldElement = document.getElementById("searchField");
 const surpriseButton = document.getElementById("surprise-btn");
+const mealsHeadline = document.getElementById("mealsHeadline");
 
 document.addEventListener("DOMContentLoaded", async () => {
   const categories = await getCategories();
@@ -79,6 +80,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 async function renderMeals(meals) {
   mealCardsElement.innerHTML = "";
   const currentMeals = await meals();
+  mealsHeadline.textContent = currentMeals
+    ? "Gerichte (" + currentMeals.length + ")"
+    : "Gerichte: (0)";
 
   if (currentMeals) {
     currentMeals.forEach((m) => {
