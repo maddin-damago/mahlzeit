@@ -304,3 +304,108 @@ footer {
 hr {
   margin: 15px 0;
 }
+
+/* *********** Media Queries ************ */
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  body {
+    min-width: 300px;
+  }
+
+  nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav div {
+    margin: 5px;
+  }
+
+  main {
+    max-width: 90%;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  #slogan {
+    margin: auto;
+    width: 25ch;
+  }
+
+  #search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #search input {
+    width: 300px;
+    margin-bottom: 10px;
+  }
+
+  #search button {
+    width: 300px;
+    margin: 0;
+  }
+
+  #categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #categories li {
+    padding: 4px 6px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  #meal-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .meal-card {
+    margin: auto;
+  }
+
+  #overview {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+  }
+
+  #image img {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+
+  #badges-meal-detail {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  #buttons-detail {
+    display: flex;
+    width: 350px;
+    justify-content: center;
+  }
+
+  #buttons-detail button,
+  #video-btn,
+  #other {
+    font-size: 14px;
+  }
+
+  .instruction {
+    width: 25ch;
+    margin-bottom: 10px;
+  }
+}

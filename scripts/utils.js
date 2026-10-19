@@ -4,6 +4,19 @@ export function getIngredientsArray(meal) {
   const ingredients = [];
   const measures = [];
 
+  const maxNumberIngredients = Object.keys(meal[0]).filter((e) =>
+    e.includes("Ingredient"),
+  );
+
+  const flatenned = Array.from(maxNumberIngredients, (_, index) => {
+    return {
+      name: meal[0][`strIngredient${index + 1}`],
+      measure: meal[0][`strMeasure${index + 1}`],
+    };
+  }).filter((ingredient) => ingredient.name);
+
+  console.log(flatenned);
+
   meal.forEach((m) => {
     for (const property in m) {
       let ingredient = {};
