@@ -246,6 +246,12 @@ footer {
   object-fit: cover;
 }
 
+#meal-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #badges-meal-detail {
   display: flex;
   justify-content: start;
@@ -259,7 +265,9 @@ footer {
 }
 
 #ingredients {
+  width: 100%;
   margin-top: 2rem;
+  margin-right: 12px;
   padding: 20px;
   background-color: white;
   border-radius: 10px;
@@ -340,26 +348,34 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 2rem;
   }
 
   #search input {
     width: 300px;
     margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  #search input::placeholder {
+    font-size: 14px;
   }
 
   #search button {
     width: 300px;
     margin: 0;
+    font-size: 14px;
   }
 
   #categories {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
   }
 
   #categories li {
-    padding: 4px 6px;
-    margin-right: 20px;
+    padding: 4px 4px;
+    margin-right: 0;
     margin-bottom: 10px;
     font-size: 14px;
     text-align: center;
@@ -374,14 +390,13 @@ hr {
   }
 
   #overview {
-    display: grid;
     grid-template-columns: 1fr;
     margin-top: 2rem;
   }
 
   #image img {
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 320px;
     border-radius: 20px;
     object-fit: cover;
   }
@@ -402,6 +417,9 @@ hr {
   #video-btn,
   #other {
     font-size: 14px;
+  }
+
+  #ingredients {
   }
 
   .instruction {
