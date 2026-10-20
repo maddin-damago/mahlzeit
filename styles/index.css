@@ -301,7 +301,6 @@ footer {
   height: 30px;
   background-color: #1f4a3a;
   color: white;
-  text-align: center;
   border-radius: 50%;
 }
 
@@ -417,9 +416,6 @@ hr {
   #video-btn,
   #other {
     font-size: 14px;
-  }
-
-  #ingredients {
   }
 
   .instruction {

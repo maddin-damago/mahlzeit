@@ -6,7 +6,7 @@ import {
   endpointCategories,
   endpointFilterByCategory,
   endpointRandomMeal,
-} from "./data.js";
+} from "./endpoints.js";
 
 const getCategoriesData = async () => {
   const reponse = await fetch(`${urlMain}${endpointCategories}`);
